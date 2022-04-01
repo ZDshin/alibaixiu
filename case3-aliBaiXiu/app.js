@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
-mongoose.connect('mongodb://localhost:27017/alibaixiu', {
+var session = require('express-session');
+mongoose.connect('mongodb://xuan:root@localhost:27017/alibaixiu', {
     useNewUrlParser: true
 }).then(() => {
     console.log("数据库连接成功")
@@ -17,7 +18,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // 处理post请求参数
 app.use(bodyParser.json());
-
+//session配置
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+}));
 // 路由
 require('./routes')(app);
 app.listen(3000, () => {
