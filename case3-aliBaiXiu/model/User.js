@@ -53,5 +53,5 @@ const User = mongoose.model('User', userSchema);
 //         console.log("添加失败");
 //     });
 module.exports = {
-    User
+    User: User
 };
