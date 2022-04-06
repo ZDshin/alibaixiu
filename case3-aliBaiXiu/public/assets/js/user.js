@@ -8,10 +8,6 @@ $('#userForm').on('submit', function () {
         // data: JSON.stringify($(this).serializeObject()),
         data: formData,
         // processData: false,
-<<<<<<< HEAD
-        // // // 不要设置请求参数的类型
-=======
->>>>>>> 3c8be2166a7affe49ff870cb55e5eaa3eb539895
         // contentType: false,
         success: function () {
             location.reload();
@@ -41,16 +37,9 @@ $('#avatar').on('change', function () {
         // contentType: 'application/json;charset=utf-8',
         // data: JSON.stringify($(this).serializeObject()),
         success: function (res) {
-<<<<<<< HEAD
-            console.log(res);
-            $("#preview").attr('src', res[0].avatar);
-            $("#hiddenAvatar").val(res[0].avatar);
-            
-=======
             // console.log(res);
             $('#preAvatar').attr('src', res[0].avatar);
             $('#hiddenAvatar').val(res[0].avatar);
->>>>>>> 3c8be2166a7affe49ff870cb55e5eaa3eb539895
         }
 
     })
