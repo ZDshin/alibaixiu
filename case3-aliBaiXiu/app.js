@@ -4,18 +4,18 @@ const path = require('path');
 const bodyParser = require('body-parser');
 var session = require('express-session');
 const formidableMiddleware = require('express-formidable');
+<<<<<<< HEAD
 mongoose.connect('mongodb://xuan:root@localhost:27017/alibaixiu', {
 // mongoose.connect('mongodb://localhost:27017/alibaixiu', {
+=======
+// mongoose.connect('mongodb://xuan:root@localhost:27017/alibaixiu', {
+mongoose.connect('mongodb://localhost:27017/alibaixiu', {
+>>>>>>> 3c8be2166a7affe49ff870cb55e5eaa3eb539895
     useNewUrlParser: true
 }).then(() => {
     console.log("数据库连接成功")
 })
-
-
-
 const app = express();
-
-
 // 静态页面实现
 app.use(express.static(path.join(__dirname, 'public')));
 
