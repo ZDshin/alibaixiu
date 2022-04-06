@@ -1,3 +1,4 @@
+
 $('#userForm').on('submit', function () {
     var formData = $(this).serialize();
     // console.log(formData);
@@ -43,6 +44,16 @@ $('#avatar').on('change', function () {
         }
 
     })
+})
+
+$.ajax({
+    type: 'get',
+    url: '/users',
+    success: function(res){
+        // console.log(res);
+        var html = template('userTpl', {data: res});
+        $('#userBox').html(html);
+    }
 })
 
 $.fn.serializeObject = function () {
