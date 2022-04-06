@@ -1,12 +1,14 @@
 $('#userForm').on('submit', function () {
-    // var formData = ;
+    var formData = $(this).serialize();
     // console.log(formData);
     $.ajax({
         type: 'post',
         url: '/users',
-        contentType: 'application/json;charset=utf-8',
-        data: JSON.stringify($(this).serializeObject()),
-        // data: formData,
+        // contentType: 'application/json;charset=utf-8',
+        // data: JSON.stringify($(this).serializeObject()),
+        data: formData,
+        // processData: false,
+        // contentType: false,
         success: function () {
             location.reload();
         },
@@ -28,14 +30,16 @@ $('#avatar').on('change', function () {
     $.ajax({
         type: 'post',
         url: '/upload',
-        // data: formData,
-        // processData: false,
+        data: formData,
+        processData: false,
         // // // 不要设置请求参数的类型
-        // contentType: false,
-        contentType: 'application/json;charset=utf-8',
-        data: JSON.stringify($(this).serializeObject()),
+        contentType: false,
+        // contentType: 'application/json;charset=utf-8',
+        // data: JSON.stringify($(this).serializeObject()),
         success: function (res) {
-            console.log(res);
+            // console.log(res);
+            $('#preAvatar').attr('src', res[0].avatar);
+            $('#hiddenAvatar').val(res[0].avatar);
         }
 
     })

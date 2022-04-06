@@ -3,19 +3,14 @@ const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
 var session = require('express-session');
-const formidableMiddleware = require('formidable');
+const formidableMiddleware = require('express-formidable');
 // mongoose.connect('mongodb://xuan:root@localhost:27017/alibaixiu', {
 mongoose.connect('mongodb://localhost:27017/alibaixiu', {
     useNewUrlParser: true
 }).then(() => {
     console.log("数据库连接成功")
 })
-
-
-
 const app = express();
-
-
 // 静态页面实现
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -23,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/user', todoRouter);
 
 // 处理post请求参数
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 //session配置
 app.use(session({
     secret: 'keyboard cat',
