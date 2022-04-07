@@ -56,6 +56,20 @@ $.ajax({
     }
 })
 
+$("#userBox").on('click', '.edit', function(res){
+    var id = $(this).attr('data-id');
+    $.ajax({
+        type: 'get',
+        url: '/users/'+ id,
+        success: function(res){
+            var html = template('modifyTpl', res);
+            // console.log(html);
+            $('#modifyBox').html(html)
+            
+        }
+    })
+})
+
 $.fn.serializeObject = function () {
     var serializeObj = {};
     var array = this.serializeArray();
