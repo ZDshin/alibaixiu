@@ -35,19 +35,19 @@ module.exports = async (req, res) => {
         // 存储结果数组
         const result = [];
         // 验证
-        for (const item of ids) {
-            //     // 验证
-            //     let {
-            //         error
-            //     } = Joi.validate(item, schema);
-            let {
-                error
-            } = schema.validate(item);
-            //     // 数据格式没有通过验证
-            if (error) return res.status(400).send({
-                message: error.message
-            });
-        }
+        // for (const item of ids) {
+        //     //     // 验证
+        //     //     let {
+        //     //         error
+        //     //     } = Joi.validate(item, schema);
+        //     let {
+        //         error
+        //     } = schema.validate(item);
+        //     //     // 数据格式没有通过验证
+        //     if (error) return res.status(400).send({
+        //         message: error.message
+        //     });
+        // }
         // 通过验证
         for (const item of ids) {
             // 删除用户

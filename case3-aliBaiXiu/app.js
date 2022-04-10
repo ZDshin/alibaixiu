@@ -4,8 +4,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 var session = require('express-session');
 const formidableMiddleware = require('express-formidable');
-// mongoose.connect('mongodb://xuan:root@localhost:27017/alibaixiu', {
-mongoose.connect('mongodb://localhost:27017/alibaixiu', {
+mongoose.connect('mongodb://xuan:root@localhost:27017/alibaixiu', {
+// mongoose.connect('mongodb://localhost:27017/alibaixiu', {
     useNewUrlParser: true
 }).then(() => {
     console.log("数据库连接成功")
