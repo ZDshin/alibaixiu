@@ -71,6 +71,21 @@ $("#userBox").on('click', '.edit', function (res) {
     })
 })
 
+$("#modifyBox").on("submit", "#modifyForm", function(){
+    // 获取用户在表单中输入的内容
+    var formData = $(this).serialize();
+    // 获取要修改的id属性
+    var id = $(this).attr('data-id');
+    $.ajax({
+        type: 'put',
+        url: '/users/' + id,
+        data: formData,
+        success: function(res){
+            location.reload();
+        }
+    })
+    return false;
+})
 $.fn.serializeObject = function () {
     var serializeObj = {};
     var array = this.serializeArray();
