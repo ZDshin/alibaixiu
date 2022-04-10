@@ -1,4 +1,3 @@
-
 $('#userForm').on('submit', function () {
     var formData = $(this).serialize();
     // console.log(formData);
@@ -45,27 +44,29 @@ $('#avatar').on('change', function () {
 
     })
 })
-
+// 查询显示用户列表
 $.ajax({
     type: 'get',
     url: '/users',
-    success: function(res){
+    success: function (res) {
         // console.log(res);
-        var html = template('userTpl', {data: res});
+        var html = template('userTpl', {
+            data: res
+        });
         $('#userBox').html(html);
     }
 })
-
-$("#userBox").on('click', '.edit', function(res){
+// 点击编辑按钮，左侧显示人员信息
+$("#userBox").on('click', '.edit', function (res) {
     var id = $(this).attr('data-id');
     $.ajax({
         type: 'get',
-        url: '/users/'+ id,
-        success: function(res){
+        url: '/users/' + id,
+        success: function (res) {
             var html = template('modifyTpl', res);
             // console.log(html);
             $('#modifyBox').html(html)
-            
+
         }
     })
 })
