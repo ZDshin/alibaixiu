@@ -11,5 +11,12 @@ user.put('/:id', require('./actions/user/findByIdAndUpdate'));
 // 根据用户id查询用户信息
 user.get('/:id', require('./actions/user/findById'));
 
+// 根据用户id删除用户
+user.delete('/:id', require('./actions/user/findByIdAndDelete'));
+
+// 修改密码
+user.put('/password', require('./actions/user/password'));
+
+
 
 module.exports = user;
