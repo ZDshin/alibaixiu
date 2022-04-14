@@ -19,9 +19,12 @@ module.exports = async (req, res) => {
         req.session.userInfo = user;
         res.send(_.pick(user, ['nickName', 'email', 'role', 'avatar', '_id', 'status', 'createTime']));
     } else {
-        return res.status(400).send({
-            message: '邮箱地址或者密码错误'
-        });
+        // console.log("密码错误");
+        return res.status(400).send(
+            // {
+            // message: '邮箱地址或者密码错误'
+            // }
+            "邮箱地址或密码错误");
     }
 
 }
