@@ -63,7 +63,7 @@ $('#categoryBox').on('click', '.delete', function () {
     }
 });
 
-// 多选框
+// 多选框和单选框交互
 $('#selectAll').on('change', function () {
     // 获取全选按钮状态
     var status = $(this).prop('checked');

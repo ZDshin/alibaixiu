@@ -1,11 +1,10 @@
  module.exports = app => {
      app.use('/users', require('./user'));
+     // 文章
+     app.use('/posts', require('./post'));
      // 分类
      app.use('/categories', require('./category'));
      // 其他
-
-
-
      // 用户登录
      app.post('/login', require('./actions/other/login'));
      app.get('/login/status', require('./actions/other/loginStatus'));

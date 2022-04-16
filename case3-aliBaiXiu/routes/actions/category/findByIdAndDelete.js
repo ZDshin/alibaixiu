@@ -16,14 +16,16 @@ module.exports = async (req, res) => {
             // 删除用户
             let category = await Category.findByIdAndDelete(item);
             // 将删除的用户存储在数组中
-            result.push(category);
+            result.push(category.title);
         }
         // 响应
+        console.log('分类 ' + result + ' 被删除');
         res.send(result);
     } else {
         // 单个删除
         let category = await Category.findByIdAndDelete(id);
         // 响应
+        console.log('分类 ' + category.title + ' 被删除');
         res.send(category);
     }
 
